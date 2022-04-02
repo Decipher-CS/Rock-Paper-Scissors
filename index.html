@@ -1,37 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="stylesheet" href="/styles/index_style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+    <title>Frontend Mentor | Rock, Paper, Scissors</title>
 
-  Score
-  Rules
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="heading">
+      <img
+        class="heading__title-img"
+        src="/images/logo.svg"
+        alt="Company logo which says, 'rock, paper, scissors'."
+      />
+      <article class="heading__score">
+        <h6 class="heading__score__title">Score</h6>
+        <p class="heading__score__value">00</p>
+      </article>
+    </header>
+    <main>
+      <section class="choice-section">
+        <img
+          class="choice-section__paper"
+          src="/images/icon-paper.svg"
+          alt="An open hand forming paper. "
+        />
+        <img
+          class="choice-section__scissors"
+          src="/images/icon-scissors.svg"
+          alt="A hand with the index and right finger out, forming scissors."
+        />
+        <img
+          class="choice-section__rock"
+          src="/images/icon-rock.svg"
+          alt="A fist froming a rock."
+        />
+      </section>
+      <section>You Picked The House Picked</section>
+      <section>You Picked The House Picked</section>
+    </main>
+    <article>
+      <p>You Win You Lose</p>
 
-  You Picked
-  The House Picked
+      <div>Play Again</div>
+    </article>
 
-  You Win
-  You Lose
+    <div>Rules</div>
 
-  Play Again
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-
-
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </body>
 </html>

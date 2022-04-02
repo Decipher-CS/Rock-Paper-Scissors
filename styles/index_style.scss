@@ -1,0 +1,55 @@
+@import "__var.scss";
+
+*,
+*::before,
+*::after {
+  margin: 0px;
+  box-sizing: border-box;
+  padding: 0px;
+}
+body {
+  background-image: $Radial-Gradient;
+  padding: $box-padding;
+}
+.heading {
+  display: grid;
+  grid-auto-flow: column;
+
+  padding: $box-padding;
+
+  border: $Header-Outline solid 2px;
+  border-radius: $border-radius;
+}
+.heading__score {
+  display: grid;
+  place-content: center;
+  place-items: center;
+
+  padding: $box-padding;
+
+  background-color: aliceblue;
+  border-radius: $border-radius;
+}
+
+.choice-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  justify-items: center;
+
+
+  background: url("/images/bg-triangle.svg") no-repeat center;
+  background-size: contain;
+
+  .choice-section__paper {
+    // @include hands($Paper-Gradient);
+    @include hands($Paper-Gradient);
+  }
+  .choice-section__scissors {
+    @include hands($Scissors-Gradient);
+  }
+  .choice-section__rock {
+    @include hands($Rock-Gradient);
+    grid-column: span 2;
+  }
+}
