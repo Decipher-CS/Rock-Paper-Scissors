@@ -35,21 +35,31 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-  justify-items: center;
+    place-items: center;
 
+  //   padding: $box-padding;
 
   background: url("/images/bg-triangle.svg") no-repeat center;
-  background-size: contain;
+  background-size: 50%;
 
+  .choice-section__paper-wrapper {
+    @include token-wrapper($Paper-Gradient);
+  }
+  .choice-section__scissors-wrapper {
+    @include token-wrapper($Scissors-Gradient);
+  }
+  .choice-section__rock-wrapper {
+    @include token-wrapper($Rock-Gradient);
+    grid-column: 1/3;
+    width: 35%
+  }
   .choice-section__paper {
-    // @include hands($Paper-Gradient);
-    @include hands($Paper-Gradient);
+    @include token-img();
   }
   .choice-section__scissors {
-    @include hands($Scissors-Gradient);
+    @include token-img();
   }
   .choice-section__rock {
-    @include hands($Rock-Gradient);
-    grid-column: span 2;
+    @include token-img();
   }
 }

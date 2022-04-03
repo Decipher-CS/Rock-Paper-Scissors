@@ -31,23 +31,78 @@ body {
 .choice-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-items: center;
+  place-items: center;
   background: url("/images/bg-triangle.svg") no-repeat center;
-  background-size: contain;
+  background-size: 50%;
+}
+.choice-section .choice-section__paper-wrapper {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+  width: 70%;
+  background: linear-gradient(90deg, hsl(230deg, 89%, 62%), hsl(230deg, 89%, 65%));
+  border-radius: 50%;
+  box-shadow: inset rgba(20, 20, 20, 0.3) 0px -7px 0px -1px;
+  cursor: pointer;
+}
+.choice-section .choice-section__scissors-wrapper {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+  width: 70%;
+  background: linear-gradient(90deg, hsl(39deg, 89%, 49%), hsl(40deg, 84%, 53%));
+  border-radius: 50%;
+  box-shadow: inset rgba(20, 20, 20, 0.3) 0px -7px 0px -1px;
+  cursor: pointer;
+}
+.choice-section .choice-section__rock-wrapper {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+  width: 70%;
+  background: linear-gradient(90deg, hsl(349deg, 71%, 52%), hsl(349deg, 70%, 56%));
+  border-radius: 50%;
+  box-shadow: inset rgba(20, 20, 20, 0.3) 0px -7px 0px -1px;
+  cursor: pointer;
+  grid-column: 1/3;
+  width: 35%;
 }
 .choice-section .choice-section__paper {
+  display: inline-block;
+  aspect-ratio: 1/1;
+  width: 70%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  padding: 16%;
   background-color: white;
-  border: linear-gradient(90deg, red, blue) solid 4px;
-  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: inset hsla(0deg, 2%, 32%, 0.15) 0px 1em 0px -10px;
 }
 .choice-section .choice-section__scissors {
+  display: inline-block;
+  aspect-ratio: 1/1;
+  width: 70%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  padding: 16%;
   background-color: white;
-  border: linear-gradient(90deg, red, blue) solid 4px;
-  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: inset hsla(0deg, 2%, 32%, 0.15) 0px 1em 0px -10px;
 }
 .choice-section .choice-section__rock {
+  display: inline-block;
+  aspect-ratio: 1/1;
+  width: 70%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  padding: 16%;
   background-color: white;
-  border: linear-gradient(90deg, red, blue) solid 4px;
-  cursor: pointer;
-  grid-column: span 2;
+  border-radius: 50%;
+  box-shadow: inset hsla(0deg, 2%, 32%, 0.15) 0px 1em 0px -10px;
 }/*# sourceMappingURL=index_style.css.map */

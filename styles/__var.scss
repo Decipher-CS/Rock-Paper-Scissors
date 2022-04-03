@@ -1,11 +1,19 @@
 // ## Colors
 
 // ### Primary
-$Scissors-Gradient:linear-gradient(90deg,  hsl(39, 89%, 49%) ,  hsl(40, 84%, 53%));
-$Paper-Gradient:linear-gradient(90deg,  hsl(230, 89%, 62%) ,  hsl(230, 89%, 65%));
-$Rock-Gradient:linear-gradient(90deg,  hsl(349, 71%, 52%)  , hsl(349, 70%, 56%));
-$Lizard-Gradient:linear-gradient( 90deg, hsl(261, 73%, 60%) ,  hsl(261, 72%, 63%));
-$Cyan:linear-gradient(90deg,  hsl(189, 59%, 53%) ,  hsl(189, 58%, 57%));
+$Scissors-Gradient: linear-gradient(
+  90deg,
+  hsl(39, 89%, 49%),
+  hsl(40, 84%, 53%)
+);
+$Paper-Gradient: linear-gradient(90deg, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+$Rock-Gradient: linear-gradient(90deg, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+$Lizard-Gradient: linear-gradient(
+  90deg,
+  hsl(261, 73%, 60%),
+  hsl(261, 72%, 63%)
+);
+$Cyan: linear-gradient(90deg, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
 
 // ### Neutral
 $Dark-Text: hsl(229, 25%, 31%);
@@ -13,24 +21,44 @@ $Score-Text: hsl(229, 64%, 46%);
 $Header-Outline: hsl(217, 16%, 45%);
 
 // ### Background
-$Radial-Gradient:linear-gradient( 90deg, hsl(214, 47%, 23%),   hsl(237, 49%, 15%));
-
+$Radial-Gradient: linear-gradient(
+  90deg,
+  hsl(214, 47%, 23%),
+  hsl(237, 49%, 15%)
+);
 
 $border-radius: 10px;
 $desktop-media-query: 700px;
 $box-padding: 1em;
 
-// Mixins
+// Mixins for rock, paper, scissors token
 
-@mixin hands($color){
-    background-color: white;
-    // border-image: #{$color};
-    // border-image-slice: 1;
-    // border-width: 4px;
-    // border-style: solid;
-    border: linear-gradient(90deg, red, blue) solid 4px;
+@mixin token-wrapper($color) {
+  display: flex;
+  overflow: hidden;
 
-    // border-radius: 200px;
+  align-items: center;
+  justify-content: center;
 
-    cursor: pointer;
+  aspect-ratio: 1/1;
+  width: 70%;
+
+  background: #{$color}; 
+  border-radius: 50%;
+  box-shadow: inset rgba(20, 20, 20, 0.3) 0px -7px 0px -1px;
+
+  cursor: pointer;
+}
+@mixin token-img() {
+  display: inline-block;
+
+  aspect-ratio: 1/1;
+  width: 70%;
+  object-fit: contain;
+
+  padding: 16%;
+
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: inset hsl(0, 2%, 32%, 15%) 0px 1em 0px -10px;
 }
