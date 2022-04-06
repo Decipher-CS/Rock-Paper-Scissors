@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
     <link rel="stylesheet" href="/styles/index_style.css" />
+    <script defer rel="script" src="/js/app.js"></script>
     <link
       rel="icon"
       type="image/png"
@@ -39,7 +40,7 @@
     </header>
     <main>
       <section class="choice-section">
-        <div class="choice-section__paper-wrapper">
+        <div class="choice-section__paper-wrapper winner-animation">
           <img
             class="choice-section__paper"
             src="/images/icon-paper.svg"
@@ -62,26 +63,27 @@
         </div>
       </section>
 
-      <section>
-        <!-- <img src="/images/icon-paper.svg" alt=""> -->
+      <section class="token-placeholder">
+        <div class="token-placeholder__user-choice"></div>
+        <h3>You Picked</h3>
+        <div class="token-placeholder__comp-choice"></div>
+        <h3>The House Picked</h3>
+      </section>
 
-        You Picked
-        <img src="" alt="" />
-        The House Picked
-      </section>
-      <section>
+      <!-- <section>
         <img src="" alt="" />
         You Picked
         <img src="" alt="" />
         The House Picked
-      </section>
+      </section> -->
     </main>
-    <article>
-      <h5>You Win</h5>
-      <button>Play Again</button>
+    <article class="result-declaration">
+      <h5 class="result-declaration__win">You Win</h5>
+      <h5 class="result-declaration__lose">You Lose</h5>
+      <button class="result-declaration__play-again">Play Again</button>
     </article>
 
-    <button>Rules</button>
+    <button type="button" class="btn-show-rules">Rules</button>
 
     <div class="attribution">
       Challenge by
