@@ -22,7 +22,6 @@ var token = {
 
 const scoreTag = document.querySelector(".heading__score__value");
 const localStorage = window.localStorage
-localStorage.setItem("score", "0")
 
 const rockToken = token.rockToken;
 const paperToken = token.paperToken;
@@ -111,8 +110,19 @@ let winner = (playerToken, compToken) => {
     }
 }
 
+let updateScore = () => {
+
+    console.log("dfsadf")
+}
+
 
 // Event listners
+
+window.onload = ()=>{
+    if (localStorage){
+        scoreTag.textContent = localStorage.getItem("score")
+    }
+}
 
 if (tokenSelection) {
 
@@ -141,6 +151,15 @@ const observer = new IntersectionObserver((entries, observer) => {
         compToken = compChoice()
         decorateToken(placeholderComp, compToken)
         roundWinner = winner(playerToken, compToken)
+        if (roundWinner == 0) {
+
+        } else if (roundWinner == playerToken) {
+            scoreTag.textContent = Number(scoreTag.textContent) + 1
+            localStorage.setItem("score", Number(scoreTag.textContent))
+        } else if (roundWinner != playerToken) {
+            scoreTag.textContent = Number(scoreTag.textContent) - 1
+            localStorage.setItem("score", Number(scoreTag.textContent))
+        }
     }
 })
 observer.observe(compSelection)
