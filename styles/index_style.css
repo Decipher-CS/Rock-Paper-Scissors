@@ -6,6 +6,12 @@
   padding: 0px;
 }
 
+button {
+  background-color: unset;
+  border: unset;
+  cursor: pointer;
+}
+
 body {
   background-image: linear-gradient(90deg, hsl(214deg, 47%, 23%), hsl(237deg, 49%, 15%));
   padding: 1em;
@@ -45,7 +51,6 @@ body {
   width: 70%;
   background: linear-gradient(90deg, hsl(230deg, 89%, 62%), hsl(230deg, 89%, 65%));
   border-radius: 50%;
-  box-shadow: inset rgba(20, 20, 20, 0.3) 0px -7px 0px -1px;
   cursor: pointer;
 }
 .choice-section .choice-section__scissors-wrapper {
@@ -58,7 +63,6 @@ body {
   width: 70%;
   background: linear-gradient(90deg, hsl(39deg, 89%, 49%), hsl(40deg, 84%, 53%));
   border-radius: 50%;
-  box-shadow: inset rgba(20, 20, 20, 0.3) 0px -7px 0px -1px;
   cursor: pointer;
 }
 .choice-section .choice-section__rock-wrapper {
@@ -71,10 +75,10 @@ body {
   width: 70%;
   background: linear-gradient(90deg, hsl(349deg, 71%, 52%), hsl(349deg, 70%, 56%));
   border-radius: 50%;
-  box-shadow: inset rgba(20, 20, 20, 0.3) 0px -7px 0px -1px;
   cursor: pointer;
   grid-column: 1/3;
   width: 35%;
+  z-index: -999999;
 }
 .choice-section .choice-section__paper {
   display: inline-block;
@@ -110,11 +114,42 @@ body {
   box-shadow: inset hsla(0deg, 2%, 32%, 0.15) 0px 1em 0px -10px;
 }
 
-.winner-animation, .choice-section__rock-wrapper {
-  box-shadow: inset rgba(20, 20, 20, 0.3) 0px -7px 0px -1px;
-  box-shadow: 0px 0px 100px 200px rgba(255, 0, 0, 0.726);
+.winner-animation::after {
+  position: absolute;
+  overflow: visible;
+  content: "";
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 999999;
+  box-shadow: inset 0px 0px 50px hsl(58deg, 100%, 50%);
+  transition: opacity 3s ease-in-out;
 }
 
+@-webkit-keyframes winner-shadow {
+  0% {
+    box-shadow: 0px 0px 0px 20px hsla(218deg, 34%, 27%, 0), 0px 0px 0px 60px hsla(218deg, 34%, 27%, 0), 0px 0px 0px 120px hsla(218deg, 34%, 27%, 0);
+  }
+  50% {
+    box-shadow: 0px 0px 0px 20px hsla(218deg, 34%, 27%, 0.5);
+  }
+  75% {
+    box-shadow: 0px 0px 0px 20px hsl(218deg, 34%, 27%), 0px 0px 0px 60px hsla(218deg, 34%, 27%, 0.5), 0px 0px 0px 120px hsla(218deg, 34%, 27%, 0.2);
+  }
+}
+
+@keyframes winner-shadow {
+  0% {
+    box-shadow: 0px 0px 0px 20px hsla(218deg, 34%, 27%, 0), 0px 0px 0px 60px hsla(218deg, 34%, 27%, 0), 0px 0px 0px 120px hsla(218deg, 34%, 27%, 0);
+  }
+  50% {
+    box-shadow: 0px 0px 0px 20px hsla(218deg, 34%, 27%, 0.5);
+  }
+  75% {
+    box-shadow: 0px 0px 0px 20px hsl(218deg, 34%, 27%), 0px 0px 0px 60px hsla(218deg, 34%, 27%, 0.5), 0px 0px 0px 120px hsla(218deg, 34%, 27%, 0.2);
+  }
+}
 .token-placeholder {
   display: grid;
   display: none;
@@ -136,7 +171,6 @@ body {
   width: 70%;
   background: rgba(0, 0, 0, 0.199);
   border-radius: 50%;
-  box-shadow: inset rgba(20, 20, 20, 0.3) 0px -7px 0px -1px;
   cursor: pointer;
   box-shadow: 0px 0px;
 }
@@ -150,7 +184,6 @@ body {
   width: 70%;
   background: rgba(0, 0, 0, 0.199);
   border-radius: 50%;
-  box-shadow: inset rgba(20, 20, 20, 0.3) 0px -7px 0px -1px;
   cursor: pointer;
   box-shadow: 0px 0px;
 }
@@ -159,14 +192,17 @@ body {
   text-align: center;
 }
 .result-declaration__play-again {
+  background-color: white;
   border-radius: 10px;
+  padding: 1em;
+  width: max(0px, 60vw);
 }
 
 .btn-show-rules {
   display: inline-block;
-  place-items: center;
   background-color: transparent;
+  border: white 2px solid;
   border-radius: 10px;
-  text-align: center;
-  margin: 0px auto;
+  padding: 1em;
+  margin-inline: 45%;
 }/*# sourceMappingURL=index_style.css.map */

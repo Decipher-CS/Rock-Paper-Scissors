@@ -20,6 +20,10 @@ var token = {
 
 // Const/ var declared here :
 
+const tempSelect = document.querySelector(".choice-section__scissors-wrapper");
+
+// tempSelect.style.cssText += "box-shadow: 0px 0px 20px 0px blue;"
+
 const scoreTag = document.querySelector(".heading__score__value");
 const localStorage = window.localStorage
 
@@ -154,9 +158,17 @@ const observer = new IntersectionObserver((entries, observer) => {
         if (roundWinner == 0) {
 
         } else if (roundWinner == playerToken) {
+            placeholderUser.classList.add("winner-animation")
+            setTimeout(() => {
+                placeholderUser.classList.remove("winner-animation")
+            }, 2000);
             scoreTag.textContent = Number(scoreTag.textContent) + 1
             localStorage.setItem("score", Number(scoreTag.textContent))
         } else if (roundWinner != playerToken) {
+            placeholderComp.classList.add("winner-animation")
+            setTimeout(() => {
+                placeholderComp.classList.remove("winner-animation")
+            }, 2000);
             scoreTag.textContent = Number(scoreTag.textContent) - 1
             localStorage.setItem("score", Number(scoreTag.textContent))
         }
