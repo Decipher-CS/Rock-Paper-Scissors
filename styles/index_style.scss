@@ -10,6 +10,7 @@
   font-family: "Barlow Semi Condensed", sans-serif;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  color: white;
 
   margin: 0px;
   box-sizing: border-box;
@@ -40,10 +41,12 @@ body {
 
   .heading__score {
     display: grid;
+    grid-auto-rows: min-content;
 
     // place-content: center;
     // place-items: center;
     justify-items: center;
+    align-content: center;
 
     padding: 0px $box-padding;
 
@@ -56,6 +59,7 @@ body {
       font-weight: 600;
     }
     &__value{
+      color: black;
       font-size: 1.4rem;
       font-weight: 700;
     }
@@ -119,14 +123,23 @@ body {
 }
 
 .result-declaration {
-  display: none; //change this!! display
+  // display: none; //change this!! display
   text-align: center;
 
-  // &__win{
-  // }
-  // &__lose{
-  // }
+  @mixin result-declaration-style {
+  color: white;
+  font-size: 3rem;
+}
+  &__win{
+    @include result-declaration-style;
+  }
+  &__lose{
+    @include result-declaration-style;
+  }
   &__play-again {
+    color: hsl(214, 47%, 23%);
+    font-weight: 500;
+
     background-color: white;
     border-radius: $border-radius;
     padding: $box-padding;
@@ -136,12 +149,13 @@ body {
 
 .btn-show-rules {
   justify-self: center;
+  // aspect-ratio: 3/1;
 
   display: inline-block;
   background-color: transparent;
-  border: white 2px solid;
+  border: white 1px solid;
   border-radius: $border-radius;
-  padding: $box-padding;
+  padding: $box-padding calc($box-padding + 2em);
 
 }
 
@@ -149,6 +163,7 @@ body {
   color: white;
   a{
     color: rgb(255, 0, 0);
+    text-decoration: none;
   }
 }
 

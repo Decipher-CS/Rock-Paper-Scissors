@@ -8,6 +8,7 @@
   font-family: "Barlow Semi Condensed", sans-serif;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  color: white;
   margin: 0px;
   box-sizing: border-box;
   padding: 0px;
@@ -36,7 +37,10 @@ body {
 }
 .heading .heading__score {
   display: grid;
+  grid-auto-rows: -webkit-min-content;
+  grid-auto-rows: min-content;
   justify-items: center;
+  align-content: center;
   padding: 0px 1em;
   background-color: aliceblue;
   border-radius: 10px;
@@ -47,6 +51,7 @@ body {
   font-weight: 600;
 }
 .heading .heading__score__value {
+  color: black;
   font-size: 1.4rem;
   font-weight: 700;
 }
@@ -174,10 +179,19 @@ body {
 }
 
 .result-declaration {
-  display: none;
   text-align: center;
 }
+.result-declaration__win {
+  color: white;
+  font-size: 3rem;
+}
+.result-declaration__lose {
+  color: white;
+  font-size: 3rem;
+}
 .result-declaration__play-again {
+  color: hsl(214deg, 47%, 23%);
+  font-weight: 500;
   background-color: white;
   border-radius: 10px;
   padding: 1em;
@@ -188,9 +202,9 @@ body {
   justify-self: center;
   display: inline-block;
   background-color: transparent;
-  border: white 2px solid;
+  border: white 1px solid;
   border-radius: 10px;
-  padding: 1em;
+  padding: 1em 3em;
 }
 
 .attribution {
@@ -198,6 +212,7 @@ body {
 }
 .attribution a {
   color: rgb(255, 0, 0);
+  text-decoration: none;
 }
 
 .winner-animation {

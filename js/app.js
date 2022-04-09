@@ -39,6 +39,8 @@ const compSelection = document.querySelector(".token-placeholder");
 
 const retrySection = document.querySelector(".result-declaration");
 const retry = document.querySelector(".result-declaration__play-again");
+const resultWin = document.querySelector(".result-declaration__win");
+const resultLose = document.querySelector(".result-declaration__lose");
 
 let playerToken = undefined;
 let compToken = undefined;
@@ -148,14 +150,16 @@ if (tokenSelection) {
 
 const observer = new IntersectionObserver((entries, observer) => {
     if (entries[0].isIntersecting) {
-       placeholderComp.classList.add("shacking-animation") 
+        placeholderComp.classList.add("shacking-animation")
         setTimeout(() => {
-        placeholderComp.classList.remove("shacking-animation") 
+            placeholderComp.classList.remove("shacking-animation")
             compToken = compChoice()
             decorateToken(placeholderComp, compToken)
             roundWinner = winner(playerToken, compToken)
             console.log("hit")
             if (roundWinner == 0) {
+                resultLose.style.display = "none"
+                resultWin.style.display = "none"
             } else if (roundWinner == playerToken) {
                 placeholderUser.classList.add("winner-animation")
                 setTimeout(() => {
@@ -164,6 +168,9 @@ const observer = new IntersectionObserver((entries, observer) => {
                 scoreTag.textContent = Number(scoreTag.textContent) + 1
                 localStorage.setItem("score", Number(scoreTag.textContent))
 
+                resultLose.style.display = "none"
+                resultWin.style.display = "block"
+
             } else if (roundWinner != playerToken) {
                 placeholderComp.classList.add("winner-animation")
                 setTimeout(() => {
@@ -171,12 +178,17 @@ const observer = new IntersectionObserver((entries, observer) => {
                 }, 2000);
                 scoreTag.textContent = Number(scoreTag.textContent) - 1
                 localStorage.setItem("score", Number(scoreTag.textContent))
+
+                resultLose.style.display = "block"
+                resultWin.style.display = "none"
+
+
             }
             retrySection.style.display = "block"
         }, 1000)
     }
-    if (!(entries[0].isIntersecting)){
-        if (placeholderComp.firstChild){
+    if (!(entries[0].isIntersecting)) {
+        if (placeholderComp.firstChild) {
             placeholderComp.removeChild(placeholderComp.firstChild)
         }
         placeholderComp.style.background = "rgba(0, 0, 0, 0.199)";
