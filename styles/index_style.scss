@@ -1,8 +1,8 @@
 @import "__var.scss";
 
 @font-face {
-  font-family: "Barlow Semi Condensed", sans-serif;
   src: url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+  font-family: 'Barlow Semi Condensed' , sans-serif;
 }
 *,
 *::before,
@@ -157,6 +157,25 @@ body {
   border-radius: $border-radius;
   padding: $box-padding calc($box-padding + 2em);
 
+}
+
+.rules{
+  position:absolute;
+  display: none;
+
+  justify-items: center;
+  align-items: center;
+
+  inset: 0px;
+
+  background-color: rgb(255, 255, 255);
+
+  h2{
+    color: black;
+  }
+  .rules__cross-btn{
+    color: black;
+  }
 }
 
 .attribution{

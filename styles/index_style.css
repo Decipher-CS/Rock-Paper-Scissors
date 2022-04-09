@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Barlow Semi Condensed", sans-serif;
   src: url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+  font-family: "Barlow Semi Condensed", sans-serif;
 }
 *,
 *::before,
@@ -205,6 +205,21 @@ body {
   border: white 1px solid;
   border-radius: 10px;
   padding: 1em 3em;
+}
+
+.rules {
+  position: absolute;
+  display: none;
+  justify-items: center;
+  align-items: center;
+  inset: 0px;
+  background-color: rgb(255, 255, 255);
+}
+.rules h2 {
+  color: black;
+}
+.rules .rules__cross-btn {
+  color: black;
 }
 
 .attribution {

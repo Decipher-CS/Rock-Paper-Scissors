@@ -42,6 +42,10 @@ const retry = document.querySelector(".result-declaration__play-again");
 const resultWin = document.querySelector(".result-declaration__win");
 const resultLose = document.querySelector(".result-declaration__lose");
 
+const rules = document.querySelector(".rules");
+const rulesOpenBtn = document.querySelector(".btn-show-rules");
+const rulesCloseBtn = document.querySelector(".rules__cross-btn");
+
 let playerToken = undefined;
 let compToken = undefined;
 let roundWinner = undefined
@@ -202,3 +206,11 @@ retry.onclick = function () {
     tokenSelection.style.display = "grid"
     compSelection.style.display = "none"
 }
+
+rulesOpenBtn.addEventListener("click", (e)=>{
+    rules.style.display= "grid"
+})
+
+rulesCloseBtn.addEventListener("click", ()=>{
+    rules.style.display = "none"
+})
