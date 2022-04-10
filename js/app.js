@@ -137,18 +137,21 @@ if (tokenSelection) {
     tokenSelection.addEventListener("click", (token) => {
         var tokenType = String(token.target.classList)
 
-        tokenSelection.style.display = "none"
-        compSelection.style.display = "grid"
+        if (tokenType == "choice-section") {
+        } else {
+            tokenSelection.style.display = "none"
+            compSelection.style.display = "grid"
 
-        if (tokenType.includes("rock")) {
-            decorateToken(placeholderUser, rockToken)
-            playerToken = rockToken
-        } else if (tokenType.includes("paper")) {
-            decorateToken(placeholderUser, paperToken)
-            playerToken = paperToken
-        } else if (tokenType.includes("scissors")) {
-            decorateToken(placeholderUser, scissorsToken)
-            playerToken = scissorsToken
+            if (tokenType.includes("rock")) {
+                decorateToken(placeholderUser, rockToken)
+                playerToken = rockToken
+            } else if (tokenType.includes("paper")) {
+                decorateToken(placeholderUser, paperToken)
+                playerToken = paperToken
+            } else if (tokenType.includes("scissors")) {
+                decorateToken(placeholderUser, scissorsToken)
+                playerToken = scissorsToken
+            }
         }
     })
 }
@@ -162,7 +165,6 @@ const observer = new IntersectionObserver((entries, observer) => {
             compToken = compChoice()
             decorateToken(placeholderComp, compToken)
             roundWinner = winner(playerToken, compToken)
-            console.log("hit")
             if (roundWinner == 0) {
                 resultLose.style.display = "none"
                 resultWin.style.display = "none"
@@ -212,16 +214,16 @@ retry.onclick = function () {
     compSelection.style.display = "none"
 }
 
-rulesOpenBtn.addEventListener("click", (e)=>{
+rulesOpenBtn.addEventListener("click", (e) => {
     backdrop.style.display = "block"
-    rules.style.display= "grid"
+    rules.style.display = "grid"
 })
 
-rulesCloseBtn.addEventListener("click", ()=>{
+rulesCloseBtn.addEventListener("click", () => {
     rules.style.display = "none"
     backdrop.style.display = "none"
 })
 
-window.addEventListener("resize", ()=>{
+window.addEventListener("resize", () => {
     console.log("resized")
 })

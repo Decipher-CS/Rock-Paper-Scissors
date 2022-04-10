@@ -75,6 +75,11 @@ body {
   background: url("/images/bg-triangle.svg") no-repeat center;
   background-size: 50%;
 }
+@media screen and (min-width: 650px) {
+  .choice-section {
+    width: min(50vw, 800px);
+  }
+}
 .choice-section .choice-section__paper-wrapper {
   position: relative;
   display: flex;
@@ -332,7 +337,7 @@ body {
 
 @media screen and (min-width: 650px) {
   .rules {
-    inset: 100px;
+    inset: 200px;
   }
 }
 .attribution {

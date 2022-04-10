@@ -88,6 +88,10 @@ body {
   place-items: center;
 
   width: min(90vw, 900px);
+  @media screen and (min-width: $desktop-media-query){
+    width: min(50vw, 800px);
+    
+  }
   margin-inline: auto;
 
   background: url("/images/bg-triangle.svg") no-repeat center;
@@ -302,7 +306,7 @@ body {
 }
 @media screen and (min-width: $desktop-media-query){
   .rules{
-    inset: 100px;
+    inset: 200px;
   }
 }
 
