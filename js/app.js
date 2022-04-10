@@ -41,6 +41,7 @@ const retrySection = document.querySelector(".result-declaration");
 const retry = document.querySelector(".result-declaration__play-again");
 const resultWin = document.querySelector(".result-declaration__win");
 const resultLose = document.querySelector(".result-declaration__lose");
+const resultTie = document.querySelector(".result-declaration__tie");
 
 const rules = document.querySelector(".rules");
 const rulesOpenBtn = document.querySelector(".btn-show-rules");
@@ -164,6 +165,7 @@ const observer = new IntersectionObserver((entries, observer) => {
             if (roundWinner == 0) {
                 resultLose.style.display = "none"
                 resultWin.style.display = "none"
+                resultTie.style.display = "block"
             } else if (roundWinner == playerToken) {
                 placeholderUser.classList.add("winner-animation")
                 setTimeout(() => {
@@ -174,6 +176,7 @@ const observer = new IntersectionObserver((entries, observer) => {
 
                 resultLose.style.display = "none"
                 resultWin.style.display = "block"
+                resultTie.style.display = "none"
 
             } else if (roundWinner != playerToken) {
                 placeholderComp.classList.add("winner-animation")
@@ -185,6 +188,7 @@ const observer = new IntersectionObserver((entries, observer) => {
 
                 resultLose.style.display = "block"
                 resultWin.style.display = "none"
+                resultTie.style.display = "none"
 
 
             }

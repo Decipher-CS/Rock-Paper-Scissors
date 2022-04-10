@@ -25,16 +25,24 @@ body {
   padding: 1em;
   display: grid;
   align-content: space-between;
+  margin-inline: auto;
   min-height: 100vh;
 }
 
 .heading {
   display: grid;
-  grid-template-columns: 1fr -webkit-min-content;
-  grid-template-columns: 1fr min-content;
+  grid-template-columns: -webkit-min-content -webkit-min-content;
+  grid-template-columns: min-content min-content;
+  justify-content: space-between;
   padding: 1em;
   border: hsl(217deg, 16%, 45%) solid 2px;
   border-radius: 10px;
+  width: clamp(0px, 80vw, 650px);
+  margin-inline: auto;
+}
+.heading .heading__title-img {
+  height: auto;
+  width: min(30vw, 130px);
 }
 .heading .heading__score {
   display: grid;
@@ -52,8 +60,8 @@ body {
   font-weight: 600;
 }
 .heading .heading__score__value {
-  color: black;
-  font-size: 1.4rem;
+  color: rgba(0, 0, 0, 0.632);
+  font-size: 2.4rem;
   font-weight: 700;
 }
 
@@ -61,6 +69,8 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center;
+  width: min(90vw, 1000px);
+  margin-inline: auto;
   background: url("/images/bg-triangle.svg") no-repeat center;
   background-size: 50%;
 }
@@ -140,17 +150,16 @@ body {
 }
 
 .token-placeholder {
-  display: grid;
   display: none;
-  grid-auto-flow: column;
-  grid-template-rows: -webkit-min-content -webkit-min-content;
-  grid-template-rows: min-content min-content;
-  grid-auto-columns: 1fr 1fr;
+  grid-template-rows: -webkit-min-content -webkit-min-content -webkit-min-content;
+  grid-template-rows: min-content min-content min-content;
+  grid-template-columns: 1fr 1fr;
   justify-items: center;
   text-align: center;
   gap: 20px;
 }
 .token-placeholder .token-placeholder__user-choice {
+  order: -1;
   position: relative;
   display: flex;
   overflow: hidden;
@@ -163,8 +172,12 @@ body {
   box-shadow: inset rgba(20, 20, 20, 0.3) 0px -7px 0px -1px;
   cursor: pointer;
   box-shadow: 0px 0px;
+}
+.token-placeholder .token-placeholder__user-title {
+  order: 3;
 }
 .token-placeholder .token-placeholder__comp-choice {
+  order: 2;
   position: relative;
   display: flex;
   overflow: hidden;
@@ -178,8 +191,51 @@ body {
   cursor: pointer;
   box-shadow: 0px 0px;
 }
+.token-placeholder .token-placeholder__comp-title {
+  order: 4;
+}
 
+@media screen and (min-width: 650px) {
+  .token-placeholder {
+    place-self: center;
+    grid-template-rows: auto auto;
+    grid-template-columns: 2fr 1fr 2fr;
+    align-items: center;
+  }
+  .token-placeholder .token-placeholder__user-choice {
+    order: 4;
+    order: unset;
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  .token-placeholder .token-placeholder__user-title {
+    order: -1;
+    order: unset;
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  .token-placeholder .token-placeholder__comp-choice {
+    order: 6;
+    order: unset;
+    grid-column: 3/4;
+    grid-row: 2/3;
+  }
+  .token-placeholder .token-placeholder__comp-title {
+    order: 3;
+    order: unset;
+    grid-column: 3/4;
+    grid-row: 1/2;
+  }
+  .token-placeholder .result-declaration {
+    order: unset;
+    grid-column: 2/3;
+    grid-row: 1/3;
+  }
+}
 .result-declaration {
+  order: 5;
+  grid-column: span 2;
+  display: none;
   text-align: center;
 }
 .result-declaration__win {
@@ -190,13 +246,23 @@ body {
   color: white;
   font-size: 3rem;
 }
+.result-declaration__tie {
+  color: white;
+  font-size: 3rem;
+}
 .result-declaration__play-again {
   color: hsl(214deg, 47%, 23%);
   font-weight: 500;
+  margin: 20px;
   background-color: white;
   border-radius: 10px;
   padding: 1em;
   width: max(0px, 60vw);
+}
+@media screen and (min-width: 650px) {
+  .result-declaration__play-again {
+    width: auto;
+  }
 }
 
 .btn-show-rules {
@@ -205,7 +271,15 @@ body {
   background-color: transparent;
   border: white 1px solid;
   border-radius: 10px;
-  padding: 1em 3em;
+  padding: 1em 2em;
+}
+@media screen and (min-width: 650px) {
+  .btn-show-rules {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: calc(1em - 5px) 2.5em;
+  }
 }
 
 .rules {
@@ -248,6 +322,7 @@ body {
 }
 
 .attribution {
+  margin-block: 20px;
   color: white;
 }
 .attribution a {
