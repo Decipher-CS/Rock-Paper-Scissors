@@ -43,6 +43,7 @@ const resultWin = document.querySelector(".result-declaration__win");
 const resultLose = document.querySelector(".result-declaration__lose");
 const resultTie = document.querySelector(".result-declaration__tie");
 
+const backdrop = document.querySelector(".rules-backdrop")
 const rules = document.querySelector(".rules");
 const rulesOpenBtn = document.querySelector(".btn-show-rules");
 const rulesCloseBtn = document.querySelector(".rules__cross-btn");
@@ -212,9 +213,15 @@ retry.onclick = function () {
 }
 
 rulesOpenBtn.addEventListener("click", (e)=>{
+    backdrop.style.display = "block"
     rules.style.display= "grid"
 })
 
 rulesCloseBtn.addEventListener("click", ()=>{
     rules.style.display = "none"
+    backdrop.style.display = "none"
+})
+
+window.addEventListener("resize", ()=>{
+    console.log("resized")
 })

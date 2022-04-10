@@ -26,6 +26,7 @@ body {
   display: grid;
   align-content: space-between;
   margin-inline: auto;
+  gap: min(2%, 20px);
   min-height: 100vh;
 }
 
@@ -69,7 +70,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center;
-  width: min(90vw, 1000px);
+  width: min(90vw, 900px);
   margin-inline: auto;
   background: url("/images/bg-triangle.svg") no-repeat center;
   background-size: 50%;
@@ -275,11 +276,19 @@ body {
 }
 @media screen and (min-width: 650px) {
   .btn-show-rules {
-    position: absolute;
+    position: fixed;
     right: 10px;
     bottom: 10px;
     padding: calc(1em - 5px) 2.5em;
   }
+}
+
+.rules-backdrop {
+  display: none;
+  position: absolute;
+  inset: 0px;
+  bottom: -100px;
+  background-color: rgba(0, 0, 0, 0.758);
 }
 
 .rules {
@@ -321,11 +330,16 @@ body {
   transform: rotate(45deg) translateX(-70%);
 }
 
+@media screen and (min-width: 650px) {
+  .rules {
+    inset: 100px;
+  }
+}
 .attribution {
   margin-block: 20px;
   color: white;
 }
-.attribution a {
+.attribution a, .attribution a:visited {
   color: rgb(255, 0, 0);
   text-decoration: none;
 }

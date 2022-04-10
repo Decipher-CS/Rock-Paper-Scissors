@@ -30,6 +30,8 @@ body {
   align-content: space-between;
   margin-inline: auto;
 
+  gap: min(2%, 20px);
+
   min-height: 100vh;
 }
 
@@ -85,7 +87,7 @@ body {
 
   place-items: center;
 
-  width: min(90vw, 1000px);
+  width: min(90vw, 900px);
   margin-inline: auto;
 
   background: url("/images/bg-triangle.svg") no-repeat center;
@@ -238,15 +240,27 @@ body {
   padding: $box-padding calc($box-padding + 1em);
 
   @media screen and (min-width: $desktop-media-query) {
-    position: absolute;
+    position: fixed;
     right: 10px;
     bottom: 10px;
+    // left: 100%;
+    // top: 100%;
+
     padding: calc($box-padding - 5px) calc($box-padding + 1.5em);
   }
 }
 
+.rules-backdrop{
+  display: none;
+
+  position: absolute;
+  inset: 0px;
+  bottom: -100px;
+  background-color: rgba(0, 0, 0, 0.758);
+}
 .rules {
   position: absolute;
+
   display: none;
 
   justify-items: center;
@@ -255,6 +269,7 @@ body {
   inset: 0px;
 
   background-color: rgb(255, 255, 255);
+
 
   h2 {
     color: black;
@@ -285,12 +300,18 @@ body {
     transform: rotate(45deg) translateX(-70%);
   }
 }
+@media screen and (min-width: $desktop-media-query){
+  .rules{
+    inset: 100px;
+  }
+}
+
 
 .attribution {
   margin-block: 20px;
 
   color: white;
-  a {
+  a,a:visited {
     color: rgb(255, 0, 0);
     text-decoration: none;
   }
