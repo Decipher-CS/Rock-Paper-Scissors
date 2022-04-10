@@ -27,7 +27,9 @@ body {
   padding: $box-padding;
 
   display: grid;
-  gap: 20px;
+  align-content: space-between;
+
+  min-height: 100vh;
 }
 
 .heading {
@@ -172,9 +174,32 @@ body {
 
   h2{
     color: black;
+    letter-spacing: -2px;
+    font-size: 2rem;
   }
   .rules__cross-btn{
     color: black;
+  }
+  .rules__cross-btn:hover{
+    animation: shacking 0.5s;
+  }
+  @mixin rules__cross-btn-psuedo {
+    content: '';
+    display: inline-block;
+    
+    background-color: rgba(127, 124, 124, 0.506);
+    border-radius: 300px;
+    width: 30px;
+    height: 3px;
+    
+  }
+  .rules__cross-btn::before{
+    @include rules__cross-btn-psuedo;
+    transform: rotate(-45deg) translateX(70%);
+  }
+  .rules__cross-btn::after{
+    @include rules__cross-btn-psuedo;
+    transform: rotate(45deg) translateX(-70%);
   }
 }
 
