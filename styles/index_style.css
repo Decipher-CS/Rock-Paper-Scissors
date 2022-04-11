@@ -70,14 +70,14 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center;
-  width: min(90vw, 900px);
+  width: min(70vw, 900px);
   margin-inline: auto;
   background: url("/images/bg-triangle.svg") no-repeat center;
   background-size: 50%;
 }
 @media screen and (min-width: 650px) {
   .choice-section {
-    width: min(50vw, 800px);
+    width: clamp(400px, 40vw, 800px);
   }
 }
 .choice-section .choice-section__paper-wrapper {
@@ -282,8 +282,8 @@ body {
 @media screen and (min-width: 650px) {
   .btn-show-rules {
     position: fixed;
-    right: 10px;
-    bottom: 10px;
+    right: 15px;
+    bottom: 15px;
     padding: calc(1em - 5px) 2.5em;
   }
 }
@@ -292,22 +292,38 @@ body {
   display: none;
   position: absolute;
   inset: 0px;
-  bottom: -100px;
+  bottom: 0px;
   background-color: rgba(0, 0, 0, 0.758);
 }
 
 .rules {
   position: absolute;
+  overflow: scroll;
   display: none;
   justify-items: center;
   align-items: center;
   inset: 0px;
   background-color: rgb(255, 255, 255);
 }
+@media screen and (min-width: 650px) {
+  .rules {
+    padding: 1em;
+    inset-inline: 200px;
+    inset-block: 100px;
+  }
+}
 .rules h2 {
-  color: black;
+  color: rgba(88, 86, 86, 0.705);
   letter-spacing: -2px;
   font-size: 2rem;
+}
+@media screen and (min-width: 650px) {
+  .rules h2 {
+    justify-self: flex-start;
+  }
+}
+.rules .rules__rule-img-wrapper {
+  padding: 1em;
 }
 .rules .rules__cross-btn {
   color: black;
@@ -335,16 +351,12 @@ body {
   transform: rotate(45deg) translateX(-70%);
 }
 
-@media screen and (min-width: 650px) {
-  .rules {
-    inset: 200px;
-  }
-}
 .attribution {
   margin-block: 20px;
   color: white;
 }
-.attribution a, .attribution a:visited {
+.attribution a,
+.attribution a:visited {
   color: rgb(255, 0, 0);
   text-decoration: none;
 }

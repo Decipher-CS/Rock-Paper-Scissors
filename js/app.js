@@ -20,10 +20,6 @@ var token = {
 
 // Const/ var declared here :
 
-const tempSelect = document.querySelector(".choice-section__scissors-wrapper");
-
-// tempSelect.style.cssText += "box-shadow: 0px 0px 20px 0px blue;"
-
 const scoreTag = document.querySelector(".heading__score__value");
 const localStorage = window.localStorage
 
@@ -100,7 +96,6 @@ function decorateToken(node, tokenType) {
     box-shadow: inset hsl(0, 2%, 32%, 15%) 0px 1em 0px -10px;
                         `
 }
-
 let compChoice = () => {
     let tokens = [rockToken, paperToken, scissorsToken]
     let num = Math.floor(Math.random() * 3)
@@ -124,11 +119,14 @@ let winner = (playerToken, compToken) => {
 }
 
 
-// Event listners
+// Event listeners
 
 window.onload = () => {
-    if (localStorage) {
+    if (localStorage.getItem("score") != null) {
         scoreTag.textContent = localStorage.getItem("score")
+    } else {
+        scoreTag.textContent = "00"
+        localStorage.setItem("score", "00")
     }
 }
 
@@ -222,8 +220,4 @@ rulesOpenBtn.addEventListener("click", (e) => {
 rulesCloseBtn.addEventListener("click", () => {
     rules.style.display = "none"
     backdrop.style.display = "none"
-})
-
-window.addEventListener("resize", () => {
-    console.log("resized")
 })
